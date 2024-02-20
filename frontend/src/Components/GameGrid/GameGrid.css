@@ -5,8 +5,28 @@
   padding-top: 96px;
 }
 
+.submit {
+  font-weight: 600;
+  /* size: 16px;
+  line-height: 16px; */
+  height: 48px;
+  width: 340px;
+  padding: 16px 24px 16px 24px;
+  margin-top: 48px;
+  background-color: #1A1A1A;
+  color: #5C5C62;
+  border: none;
+  border-radius: 8px;
+}
+
 @media screen and (max-width: 400px) {
   .game-grid {
     padding-top: 32px;
+  }
+  .submit {
+    height: 40px;
+    width: 351px;
+    margin-top: 16px;
+    padding: 12px 24px 12px 24px
   }
 }

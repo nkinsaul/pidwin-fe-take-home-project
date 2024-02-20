@@ -20,6 +20,7 @@ const GameGrid = () => {
       {guesses.map((guess, index) => {
         return <Row key={index} word={guess}/>
       })}
+      <button className='submit'>Guess Word</button>
     </div>
   )
 }
