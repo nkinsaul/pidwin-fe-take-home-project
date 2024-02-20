@@ -1,8 +1,10 @@
 .letter {
+  font-weight: 700;
+  font-size: 24px;
   border: 2px solid #5C5C62;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   width: 60px;
   height: 60px;
 }
