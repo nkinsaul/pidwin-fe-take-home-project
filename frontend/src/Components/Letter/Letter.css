@@ -1,0 +1,9 @@
+.letter {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+}
