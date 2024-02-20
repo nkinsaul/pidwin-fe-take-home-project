@@ -8,7 +8,9 @@ const App = () => {
   return (
     <main className='App'>
       <Header />
-      <GameGrid />
+      <div className='grid-container'>
+        <GameGrid />
+      </div>
     </main>
   )
 }

@@ -2,5 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5%;
+  padding-top: 96px;
+}
+
+@media screen and (max-width: 400px) {
+  .game-grid {
+    padding-top: 32px;
+  }
 }
