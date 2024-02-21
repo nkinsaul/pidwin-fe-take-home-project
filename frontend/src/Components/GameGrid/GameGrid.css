@@ -19,6 +19,10 @@
   border-radius: 8px;
 }
 
+.active-button {
+  background-color: red;
+}
+
 .custom-keyboard {
   background-color: #5C5C62;
   color: black;

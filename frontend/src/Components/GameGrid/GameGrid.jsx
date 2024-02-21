@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 //import styling
 import './GameGrid.css';
 import { customLayout } from './CustomKeyboardLayout';
@@ -25,14 +25,22 @@ const GameGrid = () => {
   const [solutionFound, setSolutionFound] = useState(false);
   const [letterIndex, setLetterIndex] = useState(0);
   const [rowIndex, setRowIndex] = useState(0);
+  const [canSubmit, setCanSubmit] = useState(false);
+  const [buttonActive, setButtonActive] = useState('submit');
 
   //funtions
   const handleKeyInput = (event) => {
     if (solutionFound)
     return
 
-    if (letterIndex < 5 && letters.includes(event))
-    typeLetter(event)
+    if (letterIndex > 3) {
+      setCanSubmit(true)
+      setButtonActive('active-button')
+    }
+
+    if (letterIndex < 5 && letters.includes(event)) {
+      typeLetter(event)
+    }
 
     if (event === "{bksp}" && letterIndex > 0) {
       handleBackSpace()
@@ -65,6 +73,20 @@ const GameGrid = () => {
     setLetterIndex(letterIndex - 1)
   }
 
+  const handleSubmit = () => {
+    console.log('submit')
+  }
+
+  useEffect (() => {
+    if (letterIndex === 5) {
+      setButtonActive('active-button');
+      setCanSubmit(true);
+    } else {
+      setButtonActive('submit');
+      setCanSubmit(false);
+    }
+  },[letterIndex])
+
   //component return
   return (
     <div className='game-grid'>
@@ -72,8 +94,9 @@ const GameGrid = () => {
         return <Row key={index} word={guess}/>
       })}
       <button 
-        className='submit'
-        // onClick={ TO DO: Submit guess and advance rowIndex }
+        disabled={!letterIndex === 5}
+        className={buttonActive}
+        onClick={handleSubmit}
         >Guess Word</button>
       {/*to do: Fix keyboard styling to Figma spec */}
       <Keyboard 
