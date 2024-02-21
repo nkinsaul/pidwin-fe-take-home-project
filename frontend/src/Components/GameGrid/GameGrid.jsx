@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 //import styling
 import './GameGrid.css';
 import { customLayout } from './CustomKeyboardLayout';
-//import { buttonTheme } from './CustomKeyboardLayout';
+import { buttonTheme } from './CustomKeyboardLayout';
 //import Components
 import Row from '../Row/Row';
 //import library
@@ -25,18 +25,13 @@ const GameGrid = () => {
   const [solutionFound, setSolutionFound] = useState(false);
   const [letterIndex, setLetterIndex] = useState(0);
   const [rowIndex, setRowIndex] = useState(0);
-  const [canSubmit, setCanSubmit] = useState(false);
   const [buttonActive, setButtonActive] = useState('submit');
+  const [isDisabled, setIsDisabled] = useState(true);
 
   //funtions
   const handleKeyInput = (event) => {
     if (solutionFound)
     return
-
-    if (letterIndex > 3) {
-      setCanSubmit(true)
-      setButtonActive('active-button')
-    }
 
     if (letterIndex < 5 && letters.includes(event)) {
       typeLetter(event)
@@ -80,10 +75,10 @@ const GameGrid = () => {
   useEffect (() => {
     if (letterIndex === 5) {
       setButtonActive('active-button');
-      setCanSubmit(true);
+      setIsDisabled(false);
     } else {
       setButtonActive('submit');
-      setCanSubmit(false);
+      setIsDisabled(true);
     }
   },[letterIndex])
 
@@ -94,15 +89,27 @@ const GameGrid = () => {
         return <Row key={index} word={guess}/>
       })}
       <button 
-        disabled={!letterIndex === 5}
+        disabled={isDisabled}
         className={buttonActive}
         onClick={handleSubmit}
         >Guess Word</button>
-      {/*to do: Fix keyboard styling to Figma spec */}
       <Keyboard 
         theme="custom-keyboard hg-theme-default"
+        className=''
         layout={customLayout}
         onKeyPress={handleKeyInput}
+        physicalKeyboardHighlight={true}
+        physicalKeyboardHighlightBgColor='#3A3A3C'
+        buttonTheme={
+          [
+            {class: 'button-theme',
+              buttons: 'Q W E R T Y U I O P A S D F G H J K L Z X C V B N M {bksp} '},
+            {class: 'enter-theme button-theme',
+              buttons: '{enter}'
+            }
+          ]
+        }
+        display={{"{bksp}":"⌫", "{enter}":"ENTER"}}
       />
     </div>
   )
