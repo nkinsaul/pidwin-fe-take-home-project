@@ -1,9 +1,11 @@
 //import styling
+import { useState } from 'react';
 import './Letter.css';
 
-const Letter = ({letter}) => {
+const Letter = ({letter, colorState}) => {
+  
   return (
-    <div className='letter'>{letter}</div>
+    <div className={colorState}>{letter}</div>
   )
 }
 
