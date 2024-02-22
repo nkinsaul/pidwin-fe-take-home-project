@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  border-bottom: 1px solid #3A3A3C;
+  padding: 24px;
+}
+
+.header > h1 {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: -2px;
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    padding: 12px;
+  }
+}
+

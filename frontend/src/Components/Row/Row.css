@@ -1,0 +1,14 @@
+.row {
+  width: 340px;
+  display: flex;
+  padding: 5px 0px 5px 0px;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 400px) {
+  .row {
+    width: 351px;
+    height: 64px;
+    padding: 4px 0px 4px 0px;
+  }
+}

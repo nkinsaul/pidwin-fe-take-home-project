@@ -1,0 +1,51 @@
+.letter {
+  font-weight: 700;
+  font-size: 24px;
+  border: 2px solid #5C5C62;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.incorrect {
+  /* background-color: red; */
+  font-weight: 700;
+  font-size: 24px;
+  border: 2px solid #FF624D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.wrong-spot {
+  background-color: #B59F3B;
+  font-weight: 700;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.correct-spot {
+  font-weight: 700;
+  font-size: 24px;
+  background-color: #538D4E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+@media screen and (max-width: 400px) {
+  .letter {
+    height: 64px;
+    width: 64px;
+  }
+}
